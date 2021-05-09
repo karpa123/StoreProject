@@ -14,7 +14,6 @@
 }
 .select__selected {
   position: relative;
-  z-index: 2;
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   background: white;
@@ -23,6 +22,7 @@
 .select__selected_open {
   border-color: #3f51b5;
   border-radius: 5px 5px 0 0;
+  z-index: 2;
 }
 
 .select__list {

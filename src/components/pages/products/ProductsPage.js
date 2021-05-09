@@ -19,7 +19,10 @@ export const ProductsPage = () => {
             <div>{product.name}</div>
             <p>{product.description}</p>
             <IconButton color="primary" aria-label="add to shopping cart" onClick={() => {
-                addToCart(product.id)
+                addToCart(product.id, Object.keys(product.characters).reduce((acc, curr) => {
+                    acc[curr] = product.characters[curr][0]
+                    return acc
+                }, {}))
                 updateModalState({
                     title: product.name + " Added To Cart", 
                     description: "Go to Cart Page to See All the Products You've Added",

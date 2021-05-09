@@ -12,6 +12,7 @@ import {Select} from "../../UI/Select"
 export const ProductPage = () => {
     const {productId} = useParams()
     const {products, addToCart} = React.useContext(AppContext)
+    const [selectedCharacters, setSelectedCharacters] = React.useState({})
 
     const selectedProduct = products.find((value) => {
         return value.id == productId
@@ -24,8 +25,11 @@ export const ProductPage = () => {
             <h1>{selectedProduct.name}</h1>
             <img src={selectedProduct.img}/>
             <p>{selectedProduct.description}</p>
-            <Select selected={'red'} title="Color" list={['red', 'green']} onSelect={() => {}} />
-            <IconButton color="primary" aria-label="add to shopping cart" onClick={() => addToCart(selectedProduct.id)}>
+            {characters.map((key) => (
+                <Select key={key} selected={selectedCharacters[key]} title={key} list={selectedProduct.characters[key]} onSelect={(selected) => {
+                    setSelectedCharacters({...selectedCharacters, [key]: selected})
+            }} />))}
+            <IconButton color="primary" aria-label="add to shopping cart" onClick={() => addToCart(selectedProduct.id, selectedCharacters)}>
                 <AddShoppingCartIcon />
             </IconButton>
         </div>

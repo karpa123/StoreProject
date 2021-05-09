@@ -21,6 +21,9 @@ export const CartPage = () => {
             <h1>{cartItem.name}</h1>
             <Link to={`/products/${cartItem.id}`}><img src={cartItem.img} height="100px"/></Link>
             <p>{cartItem.description}</p>
+            {Object.keys(cartItem.selectedCharacters).map((key) => {
+                return <p key={key}>{key}: {cartItem.selectedCharacters[key]}</p>
+            })}
             <NumberInput value={cartItem.quantity} onChange={(quantity) => changeQuantity(cartItem.id, quantity)}/>
             <div style={{display: "flex"}}>
                 <Button color="primary" style={{font: "18px"}} onClick={() => addToCart(cartItem.id)}>+</Button>

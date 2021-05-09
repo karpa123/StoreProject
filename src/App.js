@@ -1,4 +1,7 @@
-// MAKE BUTTONS AND INITIAL NAV PRETTIER https://material-ui.com/ru/components/app-bar/
+// https://material-ui.com/ru/components/app-bar/
+// git pull – update project files
+// git commit -am "commit name" – commit your updates
+// git push – upload your commit (after git commit)
 
 import React from "react";
 import {
@@ -27,7 +30,8 @@ import {initialModalState} from "./components/Popup"
 export default function App() {
   const [modalState, setModalState] = React.useState(initialModalState)
   const [cart, setCart] = React.useState([])
-  const addToCart = (productId) => {
+
+  const addToCart = (productId, selectedCharacters) => {
     const selectedProduct = products.find((value) => {
         return value.id == productId
     })
@@ -39,7 +43,7 @@ export default function App() {
         return value.id == productId ? {...value, quantity: value.quantity + 1} : value
       }))
     } else {
-      setCart([...cart, {...selectedProduct, quantity: 1}])
+      setCart([...cart, {...selectedProduct, quantity: 1, selectedCharacters}])
     }
   }
 
