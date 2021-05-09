@@ -1,0 +1,49 @@
+.select-container {
+  max-width: 200px;
+  padding: 5px;
+  user-select: none;
+}
+.select-container__title {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.select-container__select {
+  position: relative;
+  cursor: pointer;
+}
+.select__selected {
+  position: relative;
+  z-index: 2;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  background: white;
+  padding: 3px;
+}
+.select__selected_open {
+  border-color: #3f51b5;
+  border-radius: 5px 5px 0 0;
+}
+
+.select__list {
+  z-index: 1;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 145px;
+  border-radius: 0 0 5px 5px;
+  background: white;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
+  overflow: auto;
+}
+.select__list-item {
+  padding: 5px;
+}
+
+.select__list-item:last-child {
+  border-radius: 0 0 5px 5px;
+}
+.select__list-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
